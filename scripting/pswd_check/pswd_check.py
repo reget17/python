@@ -3,7 +3,7 @@ import hashlib
 import sys
 
 
-def get_response(args):
+def get_response(*args):
     for pswd in args:
         head_pswd, tail_pswd = sha1_encode(pswd)
         url = 'https://api.pwnedpasswords.com/range/' + head_pswd
@@ -25,4 +25,5 @@ def check_password(response, hash, password):
             return print(f'You should change your password. Password "{password}": {count} times')
     return print(f'Your password {password} is best')   
 
-get_response(sys.argv[1:])
+# get_response(sys.argv[1:])
+get_response('password')
